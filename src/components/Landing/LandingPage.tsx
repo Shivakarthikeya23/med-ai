@@ -16,11 +16,6 @@ const LandingPage: React.FC = () => {
       description: "Upload X-rays, CT scans, MRIs, and more. Advanced AI analyzes images and provides preliminary assessments."
     },
     {
-      icon: <Shield className="h-8 w-8" />,
-      title: "HIPAA Compliant",
-      description: "Enterprise-grade security with encrypted data storage, audit trails, and user access controls."
-    },
-    {
       icon: <Zap className="h-8 w-8" />,
       title: "Instant Results",
       description: "Get AI-powered preliminary diagnoses in seconds, not hours. Perfect for remote healthcare scenarios."
@@ -37,32 +32,31 @@ const LandingPage: React.FC = () => {
     }
   ];
 
-  const testimonials = [
-    {
-      name: "Dr. Sarah Chen",
-      role: "Rural Health Clinic Director",
-      content: "This voice-enabled AI has revolutionized how we handle remote consultations. Patients love the natural conversation flow.",
-      rating: 5
-    },
-    {
-      name: "Marcus Rodriguez",
-      role: "Community Health Worker",
-      content: "The voice interface makes it accessible for patients who struggle with traditional apps. Game-changing technology.",
-      rating: 5
-    },
-    {
-      name: "Dr. Aisha Patel",
-      role: "Emergency Medicine Physician",
-      content: "Quick preliminary assessments help us prioritize cases. The follow-up system keeps everything organized.",
-      rating: 5
-    }
-  ];
+//   const testimonials = [
+//     {
+//       name: "Dr. Sarah Chen",
+//       role: "Rural Health Clinic Director",
+//       content: "This voice-enabled AI has revolutionized how we handle remote consultations. Patients love the natural conversation flow.",
+//       rating: 5
+//     },
+//     {
+//       name: "Marcus Rodriguez",
+//       role: "Community Health Worker",
+//       content: "The voice interface makes it accessible for patients who struggle with traditional apps. Game-changing technology.",
+//       rating: 5
+//     },
+//     {
+//       name: "Dr. Aisha Patel",
+//       role: "Emergency Medicine Physician",
+//       content: "Quick preliminary assessments help us prioritize cases. The follow-up system keeps everything organized.",
+//       rating: 5
+//     }
+//   ];
 
   const stats = [
     { number: "10,000+", label: "Diagnoses Processed" },
     { number: "95%", label: "User Satisfaction" },
     { number: "24/7", label: "Availability" },
-    { number: "50+", label: "Healthcare Partners" }
   ];
 
   return (
@@ -137,10 +131,7 @@ const LandingPage: React.FC = () => {
                   <CheckCircle className="h-4 w-4 text-green-500" />
                   <span>No credit card required</span>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="h-4 w-4 text-green-500" />
-                  <span>HIPAA compliant</span>
-                </div>
+                
               </div>
             </motion.div>
 
@@ -245,7 +236,7 @@ const LandingPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Testimonials Section */}
+      {/* Testimonials Section
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -280,7 +271,7 @@ const LandingPage: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-blue-600 to-indigo-600">
