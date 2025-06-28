@@ -42,7 +42,10 @@ const FollowUpModal: React.FC<FollowUpModalProps> = ({
           user_id: user.id,
         });
 
-      if (error) throw error;
+      if (error) {
+        console.error('Follow-up insert error:', error);
+        throw error;
+      }
 
       // Log audit trail
       await supabase.from('audit_logs').insert({
@@ -59,18 +62,21 @@ const FollowUpModal: React.FC<FollowUpModalProps> = ({
       setNotes('');
       setStatus('pending');
       onFollowUpAdded();
+      toast.success('Follow-up added successfully!');
     } catch (error) {
       console.error('Error adding follow-up:', error);
-      toast.error('Failed to add follow-up');
+      toast.error('Failed to add follow-up. Please try again.');
     } finally {
       setSaving(false);
     }
   };
 
   const handleClose = () => {
-    setNotes('');
-    setStatus('pending');
-    onClose();
+    if (!saving) {
+      setNotes('');
+      setStatus('pending');
+      onClose();
+    }
   };
 
   return (
@@ -105,7 +111,8 @@ const FollowUpModal: React.FC<FollowUpModalProps> = ({
                 </div>
                 <button
                   onClick={handleClose}
-                  className="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100 transition-colors"
+                  disabled={saving}
+                  className="p-2 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100 transition-colors disabled:opacity-50"
                 >
                   <X className="h-5 w-5" />
                 </button>
@@ -142,6 +149,7 @@ const FollowUpModal: React.FC<FollowUpModalProps> = ({
                     placeholder="Enter follow-up notes, treatment updates, patient progress, etc..."
                     disabled={saving}
                     required
+                    maxLength={500}
                   />
                   <p className="text-xs text-gray-500 mt-1">
                     {notes.length}/500 characters
