@@ -29,14 +29,22 @@ const Header: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <Link to="/dashboard" className="flex items-center space-x-3">
-            <div className="p-2 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg">
-              <Stethoscope className="h-6 w-6 text-white" />
-            </div>
-            <div>
-              <h1 className="text-xl font-bold text-gray-900">MedAI Diagnosis</h1>
-              <p className="text-xs text-gray-600">Voice-Enabled Healthcare AI</p>
-            </div>
-          </Link>
+  <div className="p-2 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg">
+    <Stethoscope className="h-6 w-6 text-white" />
+  </div>
+
+  {/* Show this only on large screens and up */}
+  <div className="hidden lg:block">
+    <h1 className="text-xl font-bold text-gray-900">MedAI Diagnosis</h1>
+    <p className="text-xs text-gray-600">Voice-Enabled Healthcare AI</p>
+  </div>
+
+  {/* Show this on small and medium screens */}
+  <div className="block lg:hidden">
+    <h1 className="text-lg font-bold text-gray-900">MedAI</h1>
+  </div>
+</Link>
+
 
           <nav className="hidden md:flex items-center space-x-6">
             <Link 
