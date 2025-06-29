@@ -134,12 +134,11 @@ const DiagnosisForm: React.FC = () => {
       return;
     }
 
-    setProcessing(true);
-
     try {
       // Convert image to base64
       const reader = new FileReader();
       reader.onload = async () => {
+        setProcessing(true);
         const base64Data = reader.result as string;
         const base64Image = base64Data.split(',')[1]; // Remove data:image/jpeg;base64, prefix
 
